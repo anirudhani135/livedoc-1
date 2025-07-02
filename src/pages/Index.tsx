@@ -4,22 +4,27 @@ import { FiHome, FiSettings, FiFileText, FiCalendar, FiPlusCircle } from "react-
 import { BsThreeDots } from "react-icons/bs";
 import { IoMdSunny } from "react-icons/io";
 import { IoCalendarOutline } from "react-icons/io5";
-
-const navItems = [
-  { icon: <FiHome className="w-5 h-5" />, label: "Home" },
-  { icon: <FiFileText className="w-5 h-5" />, label: "Documents" },
-  { icon: <FiCalendar className="w-5 h-5" />, label: "Calendar" },
-  { icon: <FiSettings className="w-5 h-5" />, label: "Settings" },
-];
-
+const navItems = [{
+  icon: <FiHome className="w-5 h-5" />,
+  label: "Home"
+}, {
+  icon: <FiFileText className="w-5 h-5" />,
+  label: "Documents"
+}, {
+  icon: <FiCalendar className="w-5 h-5" />,
+  label: "Calendar"
+}, {
+  icon: <FiSettings className="w-5 h-5" />,
+  label: "Settings"
+}];
 type DashboardLayoutProps = {
   children: ReactNode;
 };
-
-const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
-  <div className="min-h-screen w-full bg-gradient-to-br from-[#f0f0f4] to-[#e8e8f0] flex">
+const DashboardLayout: React.FC<DashboardLayoutProps> = ({
+  children
+}) => <div className="min-h-screen w-full bg-gradient-to-br from-[#f0f0f4] to-[#e8e8f0] flex">
     {/* Sidebar */}
-    <aside className="flex flex-col items-center py-6 px-2 bg-white min-h-screen w-[80px]">
+    <aside className="flex flex-col items-center bg-white min-h-screen w-[80px] mx-[3px] py-[60px] px-[5px] my-[6px]">
       <div className="mb-8">
         <div className="w-10 h-10 rounded-full bg-[#f0f0f4] flex items-center justify-center">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,20 +39,11 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
             <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        {navItems.map((item, index) => (
-          <button
-            key={item.label}
-            className={`w-10 h-10 rounded-full flex items-center justify-center text-[#333] ${index === 0 ? 'bg-[#f0f0f4]' : 'bg-white hover:bg-[#f0f0f4]'} transition-colors`}
-            aria-label={item.label}
-          >
+        {navItems.map((item, index) => <button key={item.label} className={`w-10 h-10 rounded-full flex items-center justify-center text-[#333] ${index === 0 ? 'bg-[#f0f0f4]' : 'bg-white hover:bg-[#f0f0f4]'} transition-colors`} aria-label={item.label}>
             {item.icon}
-          </button>
-        ))}
+          </button>)}
       </nav>
-      <button
-        className="mt-8 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#333] hover:bg-[#f0f0f4] transition-colors"
-        aria-label="User settings"
-      >
+      <button className="mt-8 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#333] hover:bg-[#f0f0f4] transition-colors" aria-label="User settings">
         <FaRegUser className="w-5 h-5" />
       </button>
     </aside>
@@ -75,11 +71,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
                 <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="User avatar"
-              className="w-10 h-10 rounded-full border-2 border-white"
-            />
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User avatar" className="w-10 h-10 rounded-full border-2 border-white" />
           </div>
         </div>
       </header>
@@ -109,10 +101,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
               </div>
               <span className="text-xs text-[#777]">Hours saved</span>
             </div>
-            <button
-              className="ml-4 px-5 py-2.5 bg-[#333] text-white rounded-full flex items-center gap-2 hover:bg-[#444] transition-colors"
-              aria-label="Add task"
-            >
+            <button className="ml-4 px-5 py-2.5 bg-[#333] text-white rounded-full flex items-center gap-2 hover:bg-[#444] transition-colors" aria-label="Add task">
               <FiPlusCircle className="w-4 h-4" /> Add task
             </button>
           </div>
@@ -123,12 +112,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
         {children}
       </main>
     </div>
-  </div>
-);
+  </div>;
 
 // Default export: Index page using DashboardLayout and detailed cards
-const Index = () => (
-  <DashboardLayout>
+const Index = () => <DashboardLayout>
     {/* Chat Assistant Card */}
     <section className="bg-white rounded-2xl shadow-sm p-6 flex flex-col" aria-label="Greeting and Assistant Chat">
       <div className="flex justify-between mb-4">
@@ -166,11 +153,7 @@ const Index = () => (
       </div>
       <div className="mt-auto">
         <div className="relative">
-          <input 
-            type="text" 
-            placeholder="Write a message" 
-            className="w-full py-3 px-4 bg-[#f5f5f5] rounded-full text-sm focus:outline-none" 
-          />
+          <input type="text" placeholder="Write a message" className="w-full py-3 px-4 bg-[#f5f5f5] rounded-full text-sm focus:outline-none" />
           <div className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
             <button className="text-[#777] hover:text-[#333]">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +342,5 @@ const Index = () => (
         </div>
       </div>
     </section>
-  </DashboardLayout>
-);
-
+  </DashboardLayout>;
 export default Index;
