@@ -56,7 +56,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => (
       {/* Header */}
       <header className="flex items-center justify-between px-8 py-4 bg-transparent">
         <div className="flex items-center gap-4">
-          <span className="font-bold text-xl tracking-tight text-[#333]">Intellecta</span>
+          <span className="font-bold text-xl tracking-tight text-[#333]">Livedoc</span>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 bg-white rounded-full px-3 py-1.5">
