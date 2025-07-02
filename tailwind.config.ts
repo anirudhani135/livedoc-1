@@ -45,6 +45,8 @@ export default {
 				accent: {
 					green: 'hsl(var(--accent-green))',
 					'green-foreground': 'hsl(var(--accent-green-foreground))',
+					gray: 'hsl(var(--accent-gray))',
+					'gray-foreground': 'hsl(var(--accent-gray-foreground))',
 					purple: 'hsl(var(--accent-purple))',
 					'purple-foreground': 'hsl(var(--accent-purple-foreground))'
 				},

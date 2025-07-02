@@ -8,32 +8,36 @@ All colors MUST be HSL for consistency.
 
 @layer base {
   :root {
-    /* Background & Layout */
-    --background: 240 17% 97%;
-    --background-gradient-start: 240 17% 97%;
-    --background-gradient-end: 250 15% 89%;
-    --foreground: 0 0% 7%;
+    /* Background & Layout - Premium Glass Theme */
+    --background: 240 20% 96%;
+    --background-gradient-start: 240 20% 96%;
+    --background-gradient-end: 240 15% 92%;
+    --foreground: 240 10% 15%;
 
-    /* Cards & Surfaces */
+    /* Cards & Surfaces - Glassmorphic */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
-    --card-shadow: 220 13% 91%;
+    --card-foreground: 240 10% 15%;
+    --card-shadow: 240 20% 80%;
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 240 20% 90%;
 
-    /* Primary Actions (Rich Black) */
-    --primary: 220 9% 11%;
+    /* Primary Actions */
+    --primary: 240 6% 10%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 220 9% 15%;
+    --primary-hover: 240 6% 15%;
 
     /* Secondary Actions */
-    --secondary: 220 13% 95%;
-    --secondary-foreground: 220 9% 11%;
-    --secondary-hover: 220 13% 91%;
+    --secondary: 240 20% 94%;
+    --secondary-foreground: 240 10% 15%;
+    --secondary-hover: 240 20% 90%;
 
-    /* Accent Colors */
-    --accent-green: 85 65% 85%;
-    --accent-green-foreground: 85 30% 25%;
-    --accent-purple: 265 50% 90%;
-    --accent-purple-foreground: 265 40% 30%;
+    /* Premium Accent Colors */
+    --accent-green: 84 81% 77%;
+    --accent-green-foreground: 84 35% 25%;
+    --accent-gray: 240 10% 85%;
+    --accent-gray-foreground: 240 10% 35%;
+    --accent-purple: 250 75% 85%;
+    --accent-purple-foreground: 250 35% 30%;
     --success: 140 65% 75%;
     --success-foreground: 140 40% 20%;
 
@@ -130,6 +134,27 @@ All colors MUST be HSL for consistency.
     background: linear-gradient(135deg, hsl(var(--background-gradient-start)), hsl(var(--background-gradient-end)));
   }
   
+  /* Glassmorphic Card Effects */
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(12px);
+    box-shadow: 
+      0 4px 24px -6px hsl(var(--card-shadow) / 0.12),
+      0 2px 8px -2px hsl(var(--card-shadow) / 0.08);
+  }
+  
+  .glass-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 32px -8px hsl(var(--card-shadow) / 0.18),
+      0 4px 16px -4px hsl(var(--card-shadow) / 0.12);
+  }
+  
   /* Card Shadow Utilities */
   .card-shadow {
     box-shadow: 0 2px 8px -2px hsl(var(--card-shadow) / 0.2), 0 4px 12px -4px hsl(var(--card-shadow) / 0.1);
@@ -137,6 +162,13 @@ All colors MUST be HSL for consistency.
   
   .card-shadow-lg {
     box-shadow: 0 4px 16px -4px hsl(var(--card-shadow) / 0.25), 0 8px 24px -8px hsl(var(--card-shadow) / 0.15);
+  }
+  
+  /* Floating Action Button */
+  .floating-button {
+    box-shadow: 
+      0 8px 24px -6px hsl(var(--primary) / 0.3),
+      0 4px 12px -2px hsl(var(--primary) / 0.15);
   }
   
   /* Text Utilities */
@@ -150,5 +182,19 @@ All colors MUST be HSL for consistency.
   
   .text-muted {
     color: hsl(var(--text-muted));
+  }
+  
+  /* Activity Timeline Pills */
+  .activity-pill {
+    border-radius: 24px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+  
+  .activity-pill:hover {
+    transform: scale(1.05);
   }
 }
