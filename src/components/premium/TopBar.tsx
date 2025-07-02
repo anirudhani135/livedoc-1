@@ -14,41 +14,44 @@ export function TopBar() {
   const [isDark, setIsDark] = useState(false);
 
   return (
-    <header className="h-16 flex items-center justify-between px-6 glass-card border-b border-border/50">
+    <header className="h-20 flex items-center justify-between px-10 glass-card border-b border-border/50 shadow-lg rounded-b-2xl">
       {/* Logo */}
-      <div className="flex items-center space-x-3">
-        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-          <div className="w-4 h-4 bg-primary-foreground rounded-full" />
+      <div className="flex items-center space-x-4">
+        <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center shadow-md">
+          <div className="w-5 h-5 bg-primary-foreground rounded-full" />
         </div>
-        <span className="text-xl font-semibold text-foreground">Livedoc</span>
+        <span className="text-2xl font-bold text-foreground tracking-tight">Livedoc</span>
       </div>
 
       {/* Right Section */}
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-4">
         {/* Theme Toggle */}
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setIsDark(!isDark)}
-          className="h-8 w-8 rounded-full"
+          className="h-10 w-10 rounded-full"
+          aria-label="Toggle theme"
+          tabIndex={0}
+          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') setIsDark(!isDark); }}
         >
-          {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
         </Button>
 
         {/* Settings */}
-        <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-          <Settings className="h-4 w-4" />
+        <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full" aria-label="Settings" tabIndex={0}>
+          <Settings className="h-5 w-5" />
         </Button>
 
         {/* Search */}
-        <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
-          <Search className="h-4 w-4" />
+        <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full" aria-label="Search" tabIndex={0}>
+          <Search className="h-5 w-5" />
         </Button>
 
         {/* User Menu */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Avatar className="h-8 w-8 cursor-pointer">
+            <Avatar className="h-10 w-10 cursor-pointer ring-2 ring-primary/10">
               <AvatarImage src="/lovable-uploads/7cce685d-98d2-4c5b-8925-a8e93f5c3145.png" />
               <AvatarFallback>ML</AvatarFallback>
             </Avatar>

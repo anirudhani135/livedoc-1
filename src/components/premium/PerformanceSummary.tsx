@@ -21,25 +21,25 @@ export function PerformanceSummary() {
     .join(' ');
 
   return (
-    <div className="glass-card glass-card-hover rounded-2xl p-6">
+    <div className="glass-card glass-card-hover rounded-3xl p-8 shadow-lg">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="font-semibold text-foreground">Summary</h3>
-          <p className="text-sm text-muted-foreground">Track your performance</p>
+          <h3 className="font-bold text-lg text-foreground">Summary</h3>
+          <p className="text-base text-muted-foreground">Track your performance</p>
         </div>
-        <div className="flex space-x-2">
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <Settings className="h-4 w-4" />
+        <div className="flex space-x-3">
+          <Button variant="ghost" size="icon" className="h-10 w-10">
+            <Settings className="h-5 w-5" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <TrendingUp className="h-4 w-4" />
+          <Button variant="ghost" size="icon" className="h-10 w-10">
+            <TrendingUp className="h-5 w-5" />
           </Button>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="relative h-32 mb-4">
+      <div className="relative h-40 mb-6">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
           {/* Grid lines */}
           <defs>
@@ -54,8 +54,8 @@ export function PerformanceSummary() {
             d={pathData}
             fill="none"
             stroke="hsl(var(--primary))"
-            strokeWidth="2"
-            className="drop-shadow-sm"
+            strokeWidth="3"
+            className="drop-shadow-md"
           />
           
           {/* Data points */}
@@ -64,9 +64,9 @@ export function PerformanceSummary() {
               key={index}
               cx={point.x}
               cy={100 - point.y}
-              r="3"
+              r="4"
               fill="hsl(var(--primary))"
-              className="drop-shadow-sm"
+              className="drop-shadow-md"
             />
           ))}
           
@@ -74,25 +74,25 @@ export function PerformanceSummary() {
           <circle
             cx="90"
             cy="5"
-            r="6"
+            r="7"
             fill="hsl(var(--primary))"
             stroke="hsl(var(--card))"
             strokeWidth="2"
-            className="drop-shadow-md"
+            className="drop-shadow-lg"
           />
         </svg>
 
         {/* Peak label */}
-        <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-md">
+        <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-sm px-3 py-1 rounded-lg shadow-md">
           203
         </div>
       </div>
 
       {/* Chart Labels */}
-      <div className="flex justify-between text-xs text-muted-foreground">
+      <div className="flex justify-between text-sm text-muted-foreground font-semibold">
         <span>400</span>
         <span>300</span>
-        <span className="font-medium text-foreground">203 Tasks</span>
+        <span className="font-bold text-foreground">203 Tasks</span>
       </div>
     </div>
   );

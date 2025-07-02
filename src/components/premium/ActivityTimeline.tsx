@@ -38,37 +38,37 @@ const activities = [
 
 export function ActivityTimeline() {
   return (
-    <div className="glass-card glass-card-hover rounded-2xl p-6">
+    <div className="glass-card glass-card-hover rounded-3xl p-8 shadow-lg">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center space-x-3">
-          <Calendar className="h-5 w-5 text-muted-foreground" />
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center space-x-4">
+          <Calendar className="h-6 w-6 text-muted-foreground" />
           <div>
-            <h3 className="font-semibold text-foreground">My activity</h3>
-            <p className="text-sm text-muted-foreground">What is waiting for you today</p>
+            <h3 className="font-bold text-lg text-foreground">My activity</h3>
+            <p className="text-base text-muted-foreground">What is waiting for you today</p>
           </div>
         </div>
-        <Calendar className="h-5 w-5 text-muted-foreground" />
+        <Calendar className="h-6 w-6 text-muted-foreground" />
       </div>
 
       {/* Timeline */}
       <div className="relative">
         {/* Time Labels */}
-        <div className="flex justify-between mb-4 px-2">
+        <div className="flex justify-between mb-6 px-2">
           {timeSlots.map((time) => (
-            <span key={time} className="text-xs text-muted-foreground font-medium">
+            <span key={time} className="text-sm text-muted-foreground font-semibold">
               {time}
             </span>
           ))}
         </div>
 
         {/* Activity Track */}
-        <div className="relative h-20 bg-secondary/20 rounded-lg overflow-hidden">
+        <div className="relative h-24 bg-secondary/30 rounded-2xl overflow-hidden">
           {/* Timeline line */}
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border/30" />
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-border/30" />
           
           {/* Current time indicator */}
-          <div className="absolute top-0 bottom-0 left-1/2 w-0.5 bg-primary/50" />
+          <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-primary/40 rounded-full" />
           
           {/* Activity Pills */}
           {activities.map((activity) => {
@@ -79,26 +79,26 @@ export function ActivityTimeline() {
             return (
               <div
                 key={activity.id}
-                className={`absolute top-2 h-16 activity-pill ${activity.color} flex items-center space-x-3 px-4`}
+                className={`absolute top-3 h-18 activity-pill ${activity.color} flex items-center space-x-4 px-6 shadow-md`}
                 style={{
                   left: `${left}%`,
                   width: `${width}%`,
-                  minWidth: '120px'
+                  minWidth: '140px'
                 }}
               >
                 <div className="flex items-center space-x-2">
-                  <Avatar className="h-6 w-6">
+                  <Avatar className="h-7 w-7">
                     <AvatarImage src={activity.avatar} />
                     <AvatarFallback>U</AvatarFallback>
                   </Avatar>
                   {activity.teamSize > 1 && (
-                    <span className="text-xs bg-black/20 rounded-full px-2 py-1">
+                    <span className="text-xs bg-black/10 rounded-full px-3 py-1">
                       +{activity.teamSize - 1}
                     </span>
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate">{activity.title}</p>
+                  <p className="text-base font-semibold truncate">{activity.title}</p>
                   <p className="text-xs opacity-80 truncate">{activity.subtitle}</p>
                 </div>
               </div>

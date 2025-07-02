@@ -46,23 +46,24 @@ export function PremiumSidebar({ collapsed, setCollapsed }: PremiumSidebarProps)
         collapsed ? "-translate-x-full lg:w-16" : "translate-x-0 w-64"
       )}>
         {/* Navigation */}
-        <nav className="p-4 pt-16 lg:pt-4 space-y-2">
+        <nav className="flex flex-col items-center pt-24 space-y-4">
           {navigation.map((item) => (
             <NavLink
               key={item.name}
               to={item.href}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200",
-                  collapsed ? "justify-center" : "justify-start",
+                  "flex items-center justify-center w-12 h-12 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/30",
                   isActive
                     ? "bg-primary text-primary-foreground shadow-lg"
-                    : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                    : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
                 )
               }
+              aria-label={item.name}
+              tabIndex={0}
+              onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') window.location.href = item.href; }}
             >
-              <item.icon className={cn("h-5 w-5", !collapsed && "mr-3")} />
-              {!collapsed && <span>{item.name}</span>}
+              <item.icon className="h-6 w-6" />
             </NavLink>
           ))}
         </nav>
